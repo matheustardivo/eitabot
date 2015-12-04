@@ -20,7 +20,7 @@ post '/gateway' do
     resp = JSON.parse resp.body
     puts "Repo response: #{resp}"
 
-    respond_message = "There are #{resp['open_issues_count']} open issues on #{repo}"
+    respond_message "There are #{resp['open_issues_count']} open issues on #{repo}"
 
   else
     puts "Invalid action: #{action}"

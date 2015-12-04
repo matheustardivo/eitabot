@@ -2,7 +2,7 @@ require 'sinatra'
 require 'httparty'
 require 'json'
 
-post 'gateway' do
+post '/gateway' do
   message = params[:text].gsub(params[:trigger_world], '').strip
 
   action, repo = message.split('_').map { |c| c.strip.downcase }

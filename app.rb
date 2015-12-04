@@ -4,7 +4,8 @@ require 'json'
 
 post '/gateway' do
   puts params
-  message = params[:text].gsub(params[:trigger_world], '').strip
+  # {"token"=>"zvt90fQUPTn0aNYuv9IE4HXE", "team_id"=>"T0FTQEWPR", "team_domain"=>"reflectiveti", "service_id"=>"15936832052", "channel_id"=>"C0FTQEWQP", "channel_name"=>"general", "timestamp"=>"1449236778.000006", "user_id"=>"U0FTR0A5N", "user_name"=>"matheustardivo", "text"=>"eitabot: issues _ twbs/bootstrap", "trigger_word"=>"eitabot"}
+  message = params[:text].gsub(params[:trigger_word], '').strip
 
   action, repo = message.split('_').map { |c| c.strip.downcase }
   repo_url = "https://api.github.com/repos/#{repo}"

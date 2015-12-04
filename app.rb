@@ -3,6 +3,7 @@ require 'httparty'
 require 'json'
 
 post '/gateway' do
+  puts params
   message = params[:text].gsub(params[:trigger_world], '').strip
 
   action, repo = message.split('_').map { |c| c.strip.downcase }

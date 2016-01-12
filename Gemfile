@@ -6,6 +6,7 @@ gem 'sinatra'
 
 group :development, :test do
   gem 'awesome_print'
+  gem 'mocha'
   gem 'pry'
   gem 'rack-test'
   gem 'test-unit'

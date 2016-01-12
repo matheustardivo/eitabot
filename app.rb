@@ -1,7 +1,7 @@
-require 'sinatra'
 require 'httparty'
 require 'json'
 require 'logger'
+require 'sinatra'
 
 require ::File.expand_path('../models/github',  __FILE__)
 

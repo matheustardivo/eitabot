@@ -8,8 +8,6 @@ require ::File.expand_path('../../app',  __FILE__)
 class AppTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
-  TRIGGER_WORD = '/eitabot'
-
   def app
     Sinatra::Application
   end
@@ -29,20 +27,24 @@ class AppTest < Test::Unit::TestCase
   end
 
   def test_repo
-    post_and_assert_response '/eitabot repo matheustardivo/eitabot', 'https://github.com/matheustardivo/eitabot'
+    post_and_assert_response '/eitabot repo matheustardivo/dotfiles', 'https://github.com/matheustardivo/dotfiles'
   end
 
   def test_repo_with_colon
-    post_and_assert_response '/eitabot: repo matheustardivo/eitabot', 'https://github.com/matheustardivo/eitabot'
+    post_and_assert_response '/eitabot: repo matheustardivo/dotfiles', 'https://github.com/matheustardivo/dotfiles'
+  end
+
+  def test_issues
+    post_and_assert_response '/eitabot issues matheustardivo/dotfiles', 'There are 0 open issues on matheustardivo/dotfiles'
+  end
+
+  def test_issues_with_colon
+    post_and_assert_response '/eitabot: issues matheustardivo/dotfiles', 'There are 0 open issues on matheustardivo/dotfiles'
   end
 
   def post_and_assert_response(text, expected)
-    post '/gateway', text: text, trigger_word: TRIGGER_WORD
+    post '/gateway', text: text, trigger_word: '/eitabot'
     assert last_response.ok?
-    assert_equal expected, json_parse(last_response.body)['text']
-  end
-
-  def json_parse(text)
-    JSON.parse(text)
+    assert_equal expected, JSON.parse(last_response.body)['text']
   end
 end

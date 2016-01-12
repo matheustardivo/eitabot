@@ -17,11 +17,28 @@ get '/' do
 end
 
 # Retrieve GitHub info from API
+#
 # Sample commands:
+#
 # * /eitabot user matheustardivo
 # * /eitabot repo matheustardivo/dotfiles
 # * /eitabot issues matheustardivo/dotfiles
-# {"token"=>"zvt90fQUPTn0aNYuv9IE4HXE", "team_id"=>"T0FTQEWPR", "team_domain"=>"reflectiveti", "service_id"=>"15936832052", "channel_id"=>"C0FTQEWQP", "channel_name"=>"general", "timestamp"=>"1449236778.000006", "user_id"=>"U0FTR0A5N", "user_name"=>"matheustardivo", "text"=>"eitabot: issues _ twbs/bootstrap", "trigger_word"=>"eitabot"}
+#
+# Sample payload
+#
+# {
+#   "token"        => "zvt90fQUPTn0aNYuv9IE4HXE",
+#   "team_id"      => "T0FTQEWPR",
+#   "team_domain"  => "reflectiveti",
+#   "service_id"   => "15936832052",
+#   "channel_id"   => "C0FTQEWQP",
+#   "channel_name" => "general",
+#   "timestamp"    => "1449236778.000006",
+#   "user_id"      => "U0FTR0A5N",
+#   "user_name"    => "matheustardivo",
+#   "text"         => "eitabot: issues _ twbs/bootstrap",
+#   "trigger_word" => "eitabot"
+# }
 post '/gateway' do
   logger.info "Gateway params: #{params}"
 

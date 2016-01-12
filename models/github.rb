@@ -27,6 +27,6 @@ class Github
   end
 
   def logger
-    logger ||= ::Logger.new(STDOUT)
+    @logger ||= ::Logger.new(STDOUT)
   end
 end

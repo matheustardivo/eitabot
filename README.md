@@ -14,6 +14,6 @@ REALLY simple Slack bot which integrates with GitHub and lookup for basic info.
 /eitabot issues matheustardivo/dotfiles
 ```
 
-## What next?
+## What's coming next?
 
 Search by name from multiple sources and return all social networks urls
